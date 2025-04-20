@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre - Tech Blog</title>
+    <title>Sobre - guiadodev</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Estilo para o header */
@@ -13,33 +13,29 @@
             color: #fff;
         }
 
-        /* Container do header */
         .header .container {
             display: flex;
-            justify-content: space-between; /* Espaça o nome e o menu */
-            align-items: center; /* Alinha verticalmente */
+            justify-content: space-between;
+            align-items: center;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1rem;
         }
 
-        /* Nome do site */
         .site-name {
-            font-size: 1.5rem; /* Reduzido para melhorar o layout */
+            font-size: 1.5rem;
             font-weight: bold;
             color: #fff;
             margin: 0;
         }
 
-        /* Menu */
         .menu {
             list-style: none;
             display: flex;
-            justify-content: flex-end; /* Alinha o menu ao canto direito */
-            gap: 1rem; /* Espaçamento entre os itens */
+            justify-content: flex-end;
+            gap: 1rem;
             margin: 0;
             padding: 0;
-            flex-grow: 1; /* Faz o menu ocupar o espaço restante */
         }
 
         .menu li a {
@@ -51,6 +47,78 @@
 
         .menu li a:hover {
             color: #fff;
+        }
+
+        /* Estilo para a seção principal */
+        .about {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .about h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Estilo para a seção de artigos */
+        .articles {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .articles h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .articles p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .about {
+                padding: 1.5rem;
+            }
+
+            .about h1 {
+                font-size: 2rem;
+            }
+
+            .about p {
+                font-size: 1rem;
+            }
+
+            .articles {
+                padding: 1.5rem;
+            }
+
+            .articles h2 {
+                font-size: 1.8rem;
+            }
+
+            .articles p {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -70,7 +138,7 @@
     <main>
         <section class="about">
             <h1>Sobre Nós</h1>
-            <p>Bem-vindo ao Tech Blog! Aqui você encontra as últimas novidades, tendências e análises sobre tecnologia, inovação e o futuro digital.</p>
+            <p>Bem-vindo ao <strong>guiadodev</strong>! Aqui você encontra as últimas novidades, tendências e análises sobre tecnologia, artigos, resumos tech, inovação e o futuro digital.</p>
             <p>Nossa missão é informar e inspirar nossos leitores com conteúdos de qualidade sobre o mundo da tecnologia.</p>
         </section>
     </main>
