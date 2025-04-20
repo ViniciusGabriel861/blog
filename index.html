@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resumos de programação e soluções para desenvolvedores.">
+    <meta name="keywords" content="programação, desenvolvimento, resumos, tecnologia">
+    <meta name="author" content="Vinicius o Dev">
+    <title>guiadodev</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilo para a barra de pesquisa */
+        /* Estilo para o header */
+.header {
+    background-color: #333; /* Cor de fundo */
+    padding: 1rem 0;
+    color: #fff;
+}
+
+/* Container do header */
+.header .container {
+    display: flex;
+    justify-content: space-between; /* Espaça o nome e o menu */
+    align-items: center; /* Alinha verticalmente */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Nome do site */
+.site-name {
+    font-size: 1.5rem; /* Reduzido para melhorar o layout */
+    font-weight: bold;
+    color: #fff;
+    margin: 0;
+}
+
+/* Menu */
+.menu {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end; /* Alinha o menu ao canto direito */
+    gap: 1rem; /* Espaçamento entre os itens */
+    margin: 0;
+    padding: 0;
+    flex-grow: 1; /* Faz o menu ocupar o espaço restante */
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #63b3ed;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.menu li a:hover {
+    color: #fff;
+}
+
+/* Ajuste do container do header */
+.header .container {
+    display: flex;
+    justify-content: space-between; /* Espaça o nome e o menu */
+    align-items: center; /* Alinha verticalmente */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Barra de Pesquisa */
+.search-bar {
+    margin: 2rem auto; /* Espaçamento acima e abaixo */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem; /* Espaçamento entre os elementos */
+    width: 100%; /* Ocupa toda a largura */
+    max-width: 800px; /* Limita a largura máxima */
+}
+
+#search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: #63b3ed;
+    box-shadow: 0 0 8px rgba(99, 179, 237, 0.5);
+}
+
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: row; /* Mantém o nome e o menu em linha */
+        justify-content: space-between; /* Espaça o nome e o menu */
+        align-items: center; /* Alinha verticalmente */
+    }
+
+    .site-name {
+        margin-bottom: 0; /* Remove o espaço extra abaixo do nome */
+    }
+
+    .menu {
+        flex-direction: row; /* Mantém os itens do menu em linha */
+        justify-content: flex-end; /* Alinha o menu ao lado direito */
+        gap: 1rem; /* Espaçamento entre os itens */
+    }
+
+
+    .search-bar {
+        margin: 1.5rem auto; /* Ajusta o espaçamento em telas menores */
+    }
+}
+ </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <h1 class="site-name">guiadodev</h1>
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="container">
+        <!-- Campo de Pesquisa -->
+        <section class="search-bar">
+            <input type="text" id="search-input" placeholder="Pesquisar posts..." />
+        </section>
+    
+        <!-- Lista de Posts -->
+        <section id="posts-container"></section>
+    
+        <!-- Contêiner para os botões de paginação -->
+        <div id="pagination" class="pagination"></div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="social-media">
+                <a href="https://www.linkedin.com/in/vin%C3%ADcius-gabriel-5b9a4b210/" target="_blank">Linkedin</a>
+                <a href="https://www.youtube.com/@vinicius_o_dev" target="_blank">Youtube</a>
+                <a href="https://www.tiktok.com/@vinicius_o_dev?_t=ZM-8vhCmWwhdXa&_r=1" target="_blank">Tiktok</a>
+            </div>
+            <p>© 2025 guiadodev - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('search-input');
+            const postsContainer = document.getElementById('posts-container');
+            const paginationContainer = document.getElementById('pagination');
+            const postsPerPage = 5; // Número de posts por página
+            let currentPage = 1;
+            let posts = []; // Armazena os posts carregados do JSON
+
+            // Função para carregar os posts do JSON
+            function loadPosts() {
+                fetch('banco/posts.json')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Erro HTTP: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        posts = data; // Armazena os posts carregados
+                        displayPosts(currentPage);
+                        setupPagination();
+                    })
+                    .catch(error => {
+                        console.error('Erro ao carregar os posts:', error);
+                        postsContainer.innerHTML = '<p>Erro ao carregar os posts.</p>';
+                    });
+            }
+
+            // Função para exibir os posts da página atual
+            function displayPosts(page) {
+                const start = (page - 1) * postsPerPage;
+                const end = start + postsPerPage;
+                const paginatedPosts = posts.slice(start, end);
+
+                postsContainer.innerHTML = ''; // Limpa os posts anteriores
+
+                paginatedPosts.forEach(post => {
+                    const postHTML = `
+                        <article class="post-detail">
+                            <a href="post.html?id=${post.id}" class="post-link">
+                                <h1 class="post-title">${post.title}</h1>
+                            </a>
+                            <p class="post-intro">${post.content}</p>
+                        </article>
+                    `;
+                    postsContainer.innerHTML += postHTML;
+                });
+            }
+
+            // Função para criar os botões de paginação
+            function setupPagination() {
+                const totalPages = Math.ceil(posts.length / postsPerPage);
+                paginationContainer.innerHTML = ''; // Limpa os botões antigos
+
+                for (let i = 1; i <= totalPages; i++) {
+                    const button = document.createElement('button');
+                    button.textContent = i;
+                    button.classList.add('pagination-button');
+                    if (i === currentPage) button.classList.add('active');
+
+                    button.addEventListener('click', () => {
+                        currentPage = i;
+                        displayPosts(currentPage);
+                        updatePaginationButtons();
+                    });
+
+                    paginationContainer.appendChild(button);
+                }
+            }
+
+            // Atualiza o estado dos botões de paginação
+            function updatePaginationButtons() {
+                const buttons = paginationContainer.getElementsByClassName('pagination-button');
+                Array.from(buttons).forEach((button, index) => {
+                    button.classList.toggle('active', index + 1 === currentPage);
+                });
+            }
+
+            // Função para filtrar os posts
+            searchInput.addEventListener('input', () => {
+                const query = searchInput.value.toLowerCase();
+
+                const filteredPosts = posts.filter(post => {
+                    return (
+                        post.title.toLowerCase().includes(query) ||
+                        post.content.toLowerCase().includes(query)
+                    );
+                });
+
+                postsContainer.innerHTML = ''; // Limpa os posts anteriores
+
+                filteredPosts.forEach(post => {
+                    const postHTML = `
+                        <article class="post-detail">
+                            <a href="post.html?id=${post.id}" class="post-link">
+                                <h1 class="post-title">${post.title}</h1>
+                            </a>
+                            <p class="post-intro">${post.content}</p>
+                        </article>
+                    `;
+                    postsContainer.innerHTML += postHTML;
+                });
+
+                // Atualiza a paginação com base nos resultados filtrados
+                setupPagination();
+            });
+
+            // Inicializa o carregamento dos posts
+            loadPosts();
+        });
+    </script>
+</body>
+</html>

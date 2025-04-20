@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post - Tech Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilo para a imagem do post */
+        .post-image {
+            width: 100%; /* A imagem ocupará 100% da largura do contêiner */
+            max-width: 800px; /* Define uma largura máxima */
+            height: auto; /* Mantém a proporção da imagem */
+            display: block;
+            margin: 1rem auto; /* Centraliza a imagem */
+            border-radius: 8px; /* Adiciona bordas arredondadas */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve */
+        }
+    
+        /* Ajustes para telas menores */
+        @media (max-width: 768px) {
+            .post-image {
+                max-width: 100%; /* Garante que a imagem ocupe toda a largura da tela */
+                margin: 0.5rem auto; /* Reduz o espaçamento em dispositivos móveis */
+            }
+        }
+    
+        /* Estilo para listas */
+        ul {
+            padding-left: 1.5rem; /* Adiciona recuo para listas */
+            margin: 1rem 0; /* Adiciona espaçamento vertical */
+            list-style-type: disc; /* Define o estilo dos marcadores */
+        }
+    
+        ul li {
+            margin-bottom: 0.5rem; /* Adiciona espaçamento entre os itens */
+            line-height: 1.6; /* Melhora a legibilidade */
+        }
+    
+        /* Ajustes para listas no desktop */
+        @media (min-width: 769px) {
+            ul {
+                padding-left: 2rem; /* Aumenta o recuo para listas no desktop */
+                margin: 1.5rem 0; /* Adiciona mais espaçamento vertical */
+            }
+    
+            ul li {
+                margin-bottom: 0.8rem; /* Aumenta o espaçamento entre os itens no desktop */
+                font-size: 1.1rem; /* Aumenta o tamanho da fonte para melhor leitura */
+            }
+        }
+    
+        /* Aumenta a distância entre os títulos e o texto acima */
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 2rem; /* Adiciona uma margem superior */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article class="post-detail" id="post-container">
+            <!-- O conteúdo do post será carregado aqui -->
+        </article>
+    </main>
+
+    <footer>
+        <div class="social-media">
+            <a href="https://www.linkedin.com/in/vin%C3%ADcius-gabriel-5b9a4b210/" target="_blank">Linkedin</a>
+            <a href="https://www.youtube.com/@vinicius_o_dev" target="_blank">Youtube</a>
+            <a href="https://www.tiktok.com/@vinicius_o_dev?_t=ZM-8vhCmWwhdXa&_r=1" target="_blank">Tiktok</a>
+        </div>
+        <p>© 2025 guiadodev - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const postContainer = document.getElementById('post-container');
+
+        // Obtém o ID do post da URL (exemplo: post.html?id=1)
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = urlParams.get('id');
+
+        if (!postId) {
+            postContainer.innerHTML = '<p>Erro: Nenhum ID de post foi fornecido na URL.</p>';
+            return;
+        }
+
+        // Carrega os dados do JSON
+        fetch('banco/posts.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Erro HTTP: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(posts => {
+                // Encontra o post correspondente ao ID
+                const post = posts.find(p => p.id == postId);
+
+                if (post) {
+                    // Gera o conteúdo do post dinamicamente
+                    postContainer.innerHTML = `
+                        <h1>${post.title}</h1>
+                        <img src="${post.image}" alt="Imagem do Post" class="post-image">
+                        <p>${post.content}</p>
+                        <p>${post.details}</p>
+                    `;
+                } else {
+                    // Exibe uma mensagem caso o post não seja encontrado
+                    postContainer.innerHTML = '<p>Post não encontrado.</p>';
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao carregar o post:', error);
+                postContainer.innerHTML = '<p>Erro ao carregar o post.</p>';
+            });
+    });
+</script>

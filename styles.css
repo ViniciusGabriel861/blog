@@ -1,0 +1,150 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header */
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    gap: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #63b3ed;
+}
+
+/* Main Content */
+section.posts, section.highlight {
+    padding: 2rem;
+    background: #fff;
+    margin: 1rem auto;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-detail {
+    padding: 2rem;
+    text-align: center;
+}
+
+.post-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.post-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.post-intro {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+.post-content {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #666;
+    text-align: justify;
+}
+
+/* Estilo para o link do post */
+.post-link {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Faz o link envolver o título e a imagem */
+    transition: transform 0.2s ease-in-out;
+}
+
+.post-link:hover {
+    transform: scale(1.02); /* Efeito de zoom ao passar o mouse */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #333;
+    color: #fff;
+    margin-top: auto; /* Garante que o footer seja empurrado para o final */
+    width: 100%; /* Garante que o footer ocupe toda a largura */
+}
+
+footer .social-media a {
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+footer .social-media a:hover {
+    color: #63b3ed;
+}
+
+/* Garantir que o footer fique no final da página */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Altura mínima da página igual à altura da janela */
+}
+
+main {
+    flex: 1; /* Faz o conteúdo principal ocupar o espaço disponível */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .post-title {
+        font-size: 1.8rem;
+    }
+
+    .post-intro, .post-content {
+        font-size: 1rem;
+    }
+
+    section.posts, section.highlight {
+        padding: 1rem;
+        margin: 0.5rem auto;
+    }
+
+    
+}

@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "title": "Como a IA está mudando o futuro da tecnologia",
+        "image": "https://via.placeholder.com/800x400",
+        "content": "Entenda como a Inteligência Artificial está impactando diversas indústrias e moldando o futuro da tecnologia.",
+        "details": "Texto completo do post sobre como a IA está mudando o futuro da tecnologia..."
+    },
+    {
+        "id": 2,
+        "title": "As 10 tecnologias que vão dominar 2025",
+        "image": "https://www.dnkinfotelecom.com.br/wp-content/uploads/uso-de-IA-1170x620.jpg",
+        "content": "Descubra as tendências tecnológicas que estão moldando o futuro.",
+        "details": "Texto completo do post sobre as 10 tecnologias que vão dominar 2025..."
+    },
+    {
+        "id": 3,
+        "title": "Software Enterprise",
+        "image": "https://www.dnkinfotelecom.com.br/wp-content/uploads/uso-de-IA-1170x620.jpg",
+        "content": "O que é e como ele pode beneficiar sua empresa.",
+        "details": "<p>Software Enterprise é o nome utilizado para sistemas grandes em grandes empresas, empresas pequenas ou médias com atuação global, agências do governo que sofrem regulamentação, dentre outros.</p>\n\n<h2>Ecossistema</h2>\n<p>O Ecossistema Enterprise se refere a todos os instrumentos utilizados na operação da empresa, desde um SAS para controle de jornada, ao controle de estoque escolhido. Podemos olhar para esta expressão, mencionando pilares da governança: Pessoas, Processos e Tecnologia. A organização precisa de um bom processo, pessoas precisam executar este processo, e se faz necessária a escolha das melhores tecnologias.</p>\n\n<h2>Características</h2>\n<ul>\n    <li><strong>Escalabilidade</strong> - Capacidade de um sistema aumentar de tamanho e quantidade de usuários sem perder qualidade nas execuções.</li>\n    <li><strong>Disponibilidade</strong> - O sistema deve manter-se utilizável em tempo integral e com todas as funcionalidades propostas disponíveis ao usuário.</li>\n    <li><strong>Segurança</strong> - Precisa haver controle de acessos em diferentes níveis.</li>\n    <li><strong>Customização/Modularização</strong> - Quanto mais customizável aos interesses do contratante um sistema é, maiores serão as vantagens competitivas do fornecedor. Quanto à modularização, se faz necessária para garantir a organização e divisão de papéis dentro do todo.</li>\n    <li><strong>Integração</strong> - É preciso analisar a capacidade de integração de soluções antes de seu desenvolvimento e/ou contratação.</li>\n    <li><strong>Observabilidade</strong> - Implementação de logs e análises de dashboards para manter o controle do comportamento do software.</li>\n</ul>"
+    }
+]
