@@ -64,12 +64,20 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve */
         }
 
-        /* Ajustes para telas menores */
-        @media (max-width: 768px) {
-            .post-image {
-                max-width: 100%; /* Garante que a imagem ocupe toda a largura da tela */
-                margin: 0.5rem auto; /* Reduz o espaçamento em dispositivos móveis */
-            }
+       /* Responsividade para o header */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: row; /* Mantém o nome e o menu em linha */
+        justify-content: space-between; /* Espaça o nome e o menu */
+        align-items: center; /* Alinha verticalmente */
+    }
+
+    .menu {
+        flex-direction: row; /* Mantém os itens do menu lado a lado */
+        justify-content: flex-end; /* Alinha o menu ao lado direito */
+        gap: 1rem; /* Espaçamento entre os itens */
+    }
+
         }
     </style>
 </head>

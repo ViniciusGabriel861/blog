@@ -94,31 +94,20 @@
             color: #555;
         }
 
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .about {
-                padding: 1.5rem;
-            }
+        /* Responsividade para o header */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: row; /* Mantém o nome e o menu em linha */
+        justify-content: space-between; /* Espaça o nome e o menu */
+        align-items: center; /* Alinha verticalmente */
+    }
 
-            .about h1 {
-                font-size: 2rem;
-            }
+    .menu {
+        flex-direction: row; /* Mantém os itens do menu lado a lado */
+        justify-content: flex-end; /* Alinha o menu ao lado direito */
+        gap: 1rem; /* Espaçamento entre os itens */
+    }
 
-            .about p {
-                font-size: 1rem;
-            }
-
-            .articles {
-                padding: 1.5rem;
-            }
-
-            .articles h2 {
-                font-size: 1.8rem;
-            }
-
-            .articles p {
-                font-size: 1rem;
-            }
         }
     </style>
 </head>
