@@ -5,6 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre - Tech Blog</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilo para o header */
+        .header {
+            background-color: #333; /* Cor de fundo */
+            padding: 1rem 0;
+            color: #fff;
+        }
+
+        /* Container do header */
+        .header .container {
+            display: flex;
+            justify-content: space-between; /* Espaça o nome e o menu */
+            align-items: center; /* Alinha verticalmente */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Nome do site */
+        .site-name {
+            font-size: 1.5rem; /* Reduzido para melhorar o layout */
+            font-weight: bold;
+            color: #fff;
+            margin: 0;
+        }
+
+        /* Menu */
+        .menu {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end; /* Alinha o menu ao canto direito */
+            gap: 1rem; /* Espaçamento entre os itens */
+            margin: 0;
+            padding: 0;
+            flex-grow: 1; /* Faz o menu ocupar o espaço restante */
+        }
+
+        .menu li a {
+            text-decoration: none;
+            color: #63b3ed;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .menu li a:hover {
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
     <header class="header">

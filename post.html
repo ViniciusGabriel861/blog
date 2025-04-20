@@ -6,6 +6,53 @@
     <title>Post - Tech Blog</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Estilo para o header */
+        .header {
+            background-color: #333; /* Cor de fundo */
+            padding: 1rem 0;
+            color: #fff;
+        }
+
+        /* Container do header */
+        .header .container {
+            display: flex;
+            justify-content: space-between; /* Espaça o nome e o menu */
+            align-items: center; /* Alinha verticalmente */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Nome do site */
+        .site-name {
+            font-size: 1.5rem; /* Reduzido para melhorar o layout */
+            font-weight: bold;
+            color: #fff;
+            margin: 0;
+        }
+
+        /* Menu */
+        .menu {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end; /* Alinha o menu ao canto direito */
+            gap: 1rem; /* Espaçamento entre os itens */
+            margin: 0;
+            padding: 0;
+            flex-grow: 1; /* Faz o menu ocupar o espaço restante */
+        }
+
+        .menu li a {
+            text-decoration: none;
+            color: #63b3ed;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .menu li a:hover {
+            color: #fff;
+        }
+
         /* Estilo para a imagem do post */
         .post-image {
             width: 100%; /* A imagem ocupará 100% da largura do contêiner */
@@ -16,43 +63,13 @@
             border-radius: 8px; /* Adiciona bordas arredondadas */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve */
         }
-    
+
         /* Ajustes para telas menores */
         @media (max-width: 768px) {
             .post-image {
                 max-width: 100%; /* Garante que a imagem ocupe toda a largura da tela */
                 margin: 0.5rem auto; /* Reduz o espaçamento em dispositivos móveis */
             }
-        }
-    
-        /* Estilo para listas */
-        ul {
-            padding-left: 1.5rem; /* Adiciona recuo para listas */
-            margin: 1rem 0; /* Adiciona espaçamento vertical */
-            list-style-type: disc; /* Define o estilo dos marcadores */
-        }
-    
-        ul li {
-            margin-bottom: 0.5rem; /* Adiciona espaçamento entre os itens */
-            line-height: 1.6; /* Melhora a legibilidade */
-        }
-    
-        /* Ajustes para listas no desktop */
-        @media (min-width: 769px) {
-            ul {
-                padding-left: 2rem; /* Aumenta o recuo para listas no desktop */
-                margin: 1.5rem 0; /* Adiciona mais espaçamento vertical */
-            }
-    
-            ul li {
-                margin-bottom: 0.8rem; /* Aumenta o espaçamento entre os itens no desktop */
-                font-size: 1.1rem; /* Aumenta o tamanho da fonte para melhor leitura */
-            }
-        }
-    
-        /* Aumenta a distância entre os títulos e o texto acima */
-        h1, h2, h3, h4, h5, h6 {
-            margin-top: 2rem; /* Adiciona uma margem superior */
         }
     </style>
 </head>
@@ -84,8 +101,6 @@
         <p>© 2025 guiadodev - Todos os direitos reservados.</p>
     </footer>
 </body>
-</html>
-
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const postContainer = document.getElementById('post-container');
@@ -130,3 +145,4 @@
             });
     });
 </script>
+</html>
